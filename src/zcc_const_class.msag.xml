@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZCC_CONST_CLASS</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Constant class generator</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCC_CONST_CLASS</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>No values in Domain definition</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCC_CONST_CLASS</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>No package for Domain</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCC_CONST_CLASS</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Errors during generation</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCC_CONST_CLASS</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>No Domain for mentioned Data Element</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZCC_CONST_CLASS</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>No transport request can be found</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
