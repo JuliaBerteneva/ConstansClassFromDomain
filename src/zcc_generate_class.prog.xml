@@ -22,6 +22,12 @@
      <ENTRY>Data Element</ENTRY>
      <LENGTH>20</LENGTH>
     </item>
+    <item>
+     <ID>S</ID>
+     <KEY>P_RULE</KEY>
+     <ENTRY>New Class Naming Rule</ENTRY>
+     <LENGTH>29</LENGTH>
+    </item>
    </TPOOL>
   </asx:values>
  </asx:abap>
