@@ -2,6 +2,7 @@
 @AbapCatalog.compiler.compareFilter: true
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Domain values'
+@VDM.viewType: #BASIC
 define view zcc_i_domain_values
   with parameters
     i_domname : domname

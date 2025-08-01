@@ -5,11 +5,14 @@ REPORT zcc_generate_class.
 "(under chosen data element) and generates a class with the values as constants.
 "p_rule is a rule for new class naming. It should starts with zcl, [D] - means domain, this part will be replaced
 "with the full name of data element. CC means constants class in default value.
+"Parameter p_regen needed for cases when domain was changed after class generation. If this flag is set up
+"while running the report existing class will be regenerated (new values for example will be added to class)
 
 CONSTANTS: lc_default_rule TYPE tex50 VALUE 'ZCL_CC_[D]'.
 
 PARAMETERS: p_rollna TYPE rollname OBLIGATORY,
-            p_rule   TYPE text50 DEFAULT lc_default_rule.
+            p_rule   TYPE text50 DEFAULT lc_default_rule,
+            p_regen  AS CHECKBOX DEFAULT 'X'.
 
 DATA: ls_properties TYPE vseoclass,
       lt_attributes TYPE seoo_attributes_r.
@@ -27,13 +30,16 @@ START-OF-SELECTION.
     MESSAGE e004(zcc_const_class).
   ENDIF.
 
-  DATA(lv_classname) = |ZCL_CC_{ lv_domname }|.
-  "check if class doesn't exist
-  SELECT SINGLE clsname FROM seoclass
-  INTO @DATA(lv_clsname)
-  WHERE clsname = @lv_classname.
-  IF sy-subrc IS INITIAL.
-    MESSAGE e007(zcc_const_class).
+  DATA(lv_classname) = p_rule.
+  REPLACE ALL OCCURRENCES OF '[D]' IN lv_classname WITH lv_domname.
+
+  IF p_regen IS INITIAL.
+    "check if class doesn't exist
+    SELECT COUNT( * ) FROM seoclass
+    WHERE clsname = @lv_classname.
+    IF sy-dbcnt IS NOT INITIAL.
+      MESSAGE e007(zcc_const_class).
+    ENDIF.
   ENDIF.
 
   "get domain values
@@ -53,15 +59,15 @@ START-OF-SELECTION.
   ENDIF.
 
   "get transport request
-  SELECT SINGLE trkorr FROM zcc_i_data_element_transport
+  SELECT SINGLE trkorr FROM zcc_i_domain_transport
       INTO @DATA(lv_transport)
-      WHERE obj_name = @p_rollna.
+      WHERE obj_name = @lv_domname.
   IF sy-subrc IS NOT INITIAL.
     MESSAGE e005(zcc_const_class).
   ENDIF.
 
   ls_properties = VALUE #( descript = |Constants from { lv_domname } domain|
-                           clsname = |ZCL_CC_{ lv_domname }|
+                           clsname = lv_classname
                            author = sy-uname
                            clsfinal = abap_true
                            exposure = seoc_exposure_public ).

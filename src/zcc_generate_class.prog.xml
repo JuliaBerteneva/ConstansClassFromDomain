@@ -18,6 +18,12 @@
     </item>
     <item>
      <ID>S</ID>
+     <KEY>P_REGEN</KEY>
+     <ENTRY>Regenrate existing class</ENTRY>
+     <LENGTH>32</LENGTH>
+    </item>
+    <item>
+     <ID>S</ID>
      <KEY>P_ROLLNA</KEY>
      <ENTRY>Data Element</ENTRY>
      <LENGTH>20</LENGTH>
