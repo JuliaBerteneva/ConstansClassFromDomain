@@ -27,10 +27,6 @@ Given a data element, the report:
 
 ## Selection Screen
 
-![image.png](attachment:ca379489-6651-4b54-8d40-80c0bc36f9d0:image.png)
-
-*Example UI with 3 fields:*
-
 - **Data Element**: The element whose domain is used to extract fixed values and determine the type of each constant.
 - **New Class Naming Rule**: A string pattern to define the name of the generated class. Use `[D]` to insert the domain name.
 - **Regenerate Existing Class**: If checked, skips the existence check and allows the class to be overwritten.
